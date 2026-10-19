@@ -1,0 +1,132 @@
+:root{color-scheme:light;--paper:#f1f3f8;--ink:#0f1230;--card:#fff;--line:#d3d8e6;--edge:#0f1230;--mute:#555b7a;--acc:#3347ff;--blue:#3347ff;--sun:#ffd84a;--hdbg:rgba(241,243,248,.92);--deep:#0f1230;--h:"Unbounded","Manrope",sans-serif;--b:"Manrope",system-ui,sans-serif}
+[data-theme=dark]{color-scheme:dark;--paper:#0d0f1f;--ink:#eef0fa;--card:#171a33;--line:#2b2f52;--edge:#565d96;--mute:#a4aacb;--acc:#8f9bff;--hdbg:rgba(13,15,31,.92);--deep:#060713}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--b);-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .25s,color .25s}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:88px 0}
+h1,h2,h3{font-family:var(--h);line-height:1.15;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3.4vw,2.4rem);margin-bottom:40px}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* шапка */
+.hd{position:sticky;top:0;z-index:20;background:var(--hdbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{font:700 1.05rem var(--h)}
+.nav{display:flex;gap:26px;font-weight:500;font-size:.95rem}
+.nav a:hover{color:var(--acc)}
+.hd-r{display:flex;align-items:center;gap:10px}
+.lang{display:flex;background:var(--card);border:2px solid var(--edge);border-radius:999px;padding:2px}
+.lang button{border:0;background:none;color:var(--mute);font-weight:700;font-size:.78rem;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button.on{background:var(--blue);color:#fff}
+.theme{width:40px;height:40px;border-radius:50%;border:2px solid var(--edge);background:var(--card);display:grid;place-items:center;cursor:pointer}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:8px;right:8px;height:2px;background:var(--ink);transition:.2s}
+.burger span:first-child{top:15px}
+.burger span:last-child{top:23px}
+.burger[aria-expanded=true] span:first-child{top:19px;transform:rotate(45deg)}
+.burger[aria-expanded=true] span:last-child{top:19px;transform:rotate(-45deg)}
+
+/* главный экран */
+.hero{padding:56px 0 88px}
+.hero-in{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+h1{font-size:clamp(2rem,4.4vw,3.4rem);margin-bottom:24px}
+.lead{font-size:1.15rem;color:var(--mute);max-width:34em;margin-bottom:32px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border:2px solid var(--edge);border-radius:10px;font-weight:700;transition:.15s}
+.btn:hover{box-shadow:4px 4px 0 var(--edge);transform:translate(-2px,-2px)}
+.btn-p{background:var(--blue);border-color:var(--blue);color:#fff}
+.hero-art{position:relative;aspect-ratio:1/.82}
+.hero-art::before{content:"";position:absolute;inset:6% 0 0 8%;background:var(--sun);border-radius:28px}
+.hero-art .bf{position:absolute;width:76%;box-shadow:0 18px 40px rgba(0,0,0,.25);animation:rise .8s both}
+.hero-art .a{left:0;top:0;transform:rotate(-3deg)}
+.hero-art .b{right:0;bottom:0;transform:rotate(2.5deg);animation-delay:.15s}
+@keyframes rise{from{opacity:0;translate:0 28px}}
+
+/* окно браузера вокруг скриншота */
+.bf{background:var(--card);border:2px solid var(--edge);border-radius:12px;overflow:hidden}
+.bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:2px solid var(--edge)}
+.bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.bar span{margin-left:10px;flex:1;font-size:.72rem;color:var(--mute);background:var(--paper);border-radius:6px;padding:1px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bf img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+
+/* обо мне */
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.about h2{margin-bottom:24px}
+.about p{margin-bottom:16px;max-width:36em}
+.todo{margin-top:24px;border-top:2px solid var(--edge)}
+.todo li{list-style:none;padding:14px 0;border-bottom:1px solid var(--line);font-weight:700}
+.me{position:relative;max-width:440px;justify-self:center;width:100%}
+.me::before{content:"";position:absolute;inset:8% -5% -5% 8%;background:var(--sun);border-radius:28px}
+.me img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--edge);border-radius:12px}
+
+/* проекты */
+.sub{color:var(--mute);max-width:36em;margin:-16px 0 40px}
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:48px 32px}
+.proj{display:block}
+.proj .bf{margin-bottom:18px;transition:.2s}
+.proj:hover .bf{box-shadow:8px 8px 0 var(--blue);transform:translate(-4px,-4px)}
+.proj h3{font-size:1.2rem;margin-bottom:6px}
+.proj p{color:var(--mute);max-width:32em}
+.proj small{display:block;margin-top:8px;font-weight:700;font-size:.85rem;color:var(--acc)}
+
+/* стек */
+.st{border-top:2px solid var(--edge)}
+.st>div{display:grid;grid-template-columns:220px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);align-items:center}
+.st dt{font:600 1rem var(--h)}
+.st dd{display:flex;flex-wrap:wrap;gap:10px}
+.st dd span{border:2px solid var(--edge);border-radius:999px;padding:4px 16px;font-weight:700;background:var(--card)}
+
+/* цены */
+.pr{border-top:2px solid var(--edge)}
+.pr li{list-style:none;display:grid;grid-template-columns:1fr auto;gap:8px 32px;padding:26px 0;border-bottom:1px solid var(--line);align-items:center}
+.pr h3{font-size:1.15rem;margin-bottom:4px}
+.pr p{color:var(--mute);max-width:40em}
+.pr b{font:700 1.4rem var(--h);background:var(--sun);color:#0f1230;padding:4px 14px;border-radius:8px;white-space:nowrap}
+.note{margin-top:24px;color:var(--mute)}
+
+/* чем полезен */
+.use{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 48px}
+.use h3{font-size:1.1rem;margin-bottom:8px}
+.use p{color:var(--mute)}
+
+/* контакты */
+.contact{background:var(--deep);color:#fff}
+.cgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.contact h2{max-width:14em}
+.contact p{color:#b7bdd8;max-width:34em;margin:-16px 0 36px}
+.cl{border-top:1px solid #3a3f66}
+.cl a{display:flex;align-items:center;gap:16px;padding:22px 4px;border-bottom:1px solid #3a3f66;font:600 1.3rem var(--h);transition:.2s}
+.cl a:hover{color:var(--sun);padding-left:16px}
+.cl .ico{width:28px;height:28px}
+.cph{width:100%;max-width:440px;justify-self:center;aspect-ratio:4/5;object-fit:cover;object-position:center 62%;border:2px solid #3a3f66;border-radius:12px}
+.ft{background:var(--deep);color:#b7bdd8;border-top:1px solid #3a3f66;padding:28px 0;font-size:.9rem}
+.ft-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.soc{display:flex;gap:10px}
+.soc a{width:42px;height:42px;border:2px solid #3a3f66;border-radius:50%;display:grid;place-items:center;transition:.15s}
+.soc a:hover{border-color:var(--sun);color:var(--sun)}
+
+/* кнопка наверх */
+.up{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;background:var(--sun);color:#0f1230;border:2px solid var(--edge);display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transition:.2s;z-index:15}
+.up.on{opacity:1;pointer-events:auto}
+
+/* мобильная версия */
+@media(max-width:860px){
+  section{padding:64px 0}
+  .hero{padding:40px 0 64px}
+  .hero-in,.about,.pg,.use,.cgrid{grid-template-columns:1fr}
+  .burger{display:block}
+  .nav{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line)}
+  .nav.open{display:flex}
+  .nav a{padding:16px 20px;border-top:1px solid var(--line)}
+  .st>div,.pr li{grid-template-columns:1fr}
+  .pr b{justify-self:start;font-size:1.2rem}
+  .logo{font-size:.95rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
